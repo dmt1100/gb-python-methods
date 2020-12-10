@@ -15,7 +15,7 @@ try:
             data = response.json()
             with open(file_name, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
-                print('Файл записан!')
+                print(f'Файл {file_name} записан!')
         else:
             raise Exception('Неожиданный тип содержимого')
 except Exception as e:
