@@ -58,7 +58,7 @@ url = 'https://lenta.ru/'
 response = requests.get(url, headers=header)
 dom = html.fromstring(response.text)
 
-items = dom.xpath("//section[contains(@class,'for-main')]//div[contains(@class,'item')]")
+items = dom.xpath("//time[@class='g-time']/../..")
 
 lenta = []
 for item in items:
@@ -85,7 +85,7 @@ url = 'https://yandex.ru/news/'
 response = requests.get(url, headers=header)
 dom = html.fromstring(response.text)
 
-items = dom.xpath("//div[contains(@class,'news-top-stories')]/div[contains(@class,'mg-grid__col')]")
+items = dom.xpath("//article[contains(@class,'mg-card')]//a[contains(@href,'rubric=politics') and @class='mg-card__link']/ancestor::article")
 
 yandex = []
 for item in items:
